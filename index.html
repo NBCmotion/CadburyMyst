@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Image Map Slideshow</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: black;
+        }
+        .slideshow-frame {
+            width: 1024px;
+            height: 768px;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 5px solid #222;
+            overflow: hidden;
+        }
+        .slideshow-frame img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="slideshow-frame">
+        <!-- Image with image map applied -->
+        <img id="slideshow-image" src="images/Cad_01.jpg" alt="Slideshow Image" usemap="#image-map">
+        
+        <!-- Define your image map with zones linked to other images -->
+        <map name="image-map" id="image-map">
+            <!-- Example clickable areas for Cad_01 -->
+            <area shape="rect" coords="10,10,300,300" onclick="showImage(1)" alt="Go to Image 2">
+            <area shape="circle" coords="400,400,100" onclick="showImage(2)" alt="Go to Image 3">
+            <!-- Add more areas as needed -->
+        </map>
+    </div>
+
+    <script>
+        // List of images
+        const images = [
+            'images/Cad_01.jpg', 'images/Cad_02.jpg', 'images/Cad_03.jpg',
+            'images/Cad_04.jpg', 'images/Cad_05.jpg', 'images/Cad_06.jpg',
+            'images/Cad_07.jpg', 'images/Cad_08.jpg', 'images/Cad_09.jpg',
+            'images/Cad_10.jpg', 'images/Cad_11.jpg'
+        ];
+
+        // Function to update the displayed image based on index
+        function showImage(index) {
+            document.getElementById('slideshow-image').src = images[index];
+            updateImageMap(index);  // Update the image map for the new image
+        }
+
+        // Function to update the image map based on the current image
+        function updateImageMap(index) {
+            const imageMap = document.getElementById('image-map');
+            imageMap.innerHTML = '';  // Clear existing map areas
+
+            // Add areas based on the current image (example for each image)
+            if (index === 0) {
+                imageMap.innerHTML = `
+                    <area shape="rect" coords="10,10,300,300" onclick="showImage(1)" alt="Go to Image 2">
+                    <area shape="circle" coords="400,400,100" onclick="showImage(2)" alt="Go to Image 3">
+                `;
+            } else if (index === 1) {
+                imageMap.innerHTML = `
+                    <area shape="rect" coords="20,20,200,200" onclick="showImage(3)" alt="Go to Image 4">
+                    <area shape="circle" coords="600,200,100" onclick="showImage(0)" alt="Back to Image 1">
+                `;
+            }
+            // Continue defining areas for other images as needed
+        }
+
+        // Load the first image and set up its map on page load
+        window.onload = function() {
+            showImage(0);
+        };
+    </script>
+
+</body>
+</html>
