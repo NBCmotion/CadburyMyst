@@ -1,77 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadbury_Home</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: black;
-        }
-        .slideshow-frame {
-            width: 1024px;
-            height: 768px;
-            background-color: black;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border: 4px solid #222;
-            overflow: hidden;
-        }
-        .slideshow-frame img {
-            max-width: 100%;
-            max-height: 100%;
-        }
-        
-        
-    </style>
+    <title>Redirect on Click</title>
+    <script>
+        // JavaScript to handle any click event on the page
+        document.addEventListener("DOMContentLoaded", function() {
+            document.addEventListener("click", function() {
+                window.location.href = "https://www.https://nbcmotion.github.io/CadburyMyst/Cad_01"; // URL to redirect to
+            });
+        });
+    </script>
 </head>
 <body>
-
-    <div class="slideshow-frame">
-        <!-- Image with image map applied -->
-        <img id="slideshow-image" src="images[index]" usemap="map1" class="active slideshow-image">
-          <!-- Define your image map with zones linked to other images -->
-       
-        <map name="map1">
-            <!-- Example clickable areas for Cad_01 -->
-            <area shape="poly" coords="284,285,361,327,349,645,743,654,737,323,814,295,554,30" onclick="showImage(4)" alt="Go to Image 5">
-            <area shape="rect" coords="0,0,200,768" onclick="showImage(3)" alt="Go to Image 4">
-            <area shape="rect" coords="824,0,1024,768" onclick="showImage(1)" alt="Go to Image 2">
-            <!-- Add more areas as needed -->
-        </map>
-
-    </div>
-
-    <script>
-        // List of images
-        const images = [
-            { src: 'https://raw.githubusercontent.com/NBCmotion/CadburyMyst/refs/heads/main/Cad_01.jpg', map: "map1" }, 
-            { src: 'https://raw.githubusercontent.com/NBCmotion/CadburyMyst/refs/heads/main/Cad_02.jpg', map: "map2" }, 
-            { src: 'https://raw.githubusercontent.com/NBCmotion/CadburyMyst/refs/heads/main/Cad_03.jpg', map: "map3" },
-            { src: 'https://raw.githubusercontent.com/NBCmotion/CadburyMyst/refs/heads/main/Cad_04.jpg', map: "map4" }, 
-            { src: 'https://raw.githubusercontent.com/NBCmotion/CadburyMyst/refs/heads/main/Cad_05.jpg', map: "map5" }, 
-            { src: 'https://raw.githubusercontent.com/NBCmotion/CadburyMyst/refs/heads/main/Cad_06.jpg', map: "map6" },
-            { src: 'https://raw.githubusercontent.com/NBCmotion/CadburyMyst/refs/heads/main/Cad_07.jpg', map: "map7" }, 
-            { src: 'https://raw.githubusercontent.com/NBCmotion/CadburyMyst/refs/heads/main/Cad_08.jpg', map: "map8" }, 
-            { src: 'https://raw.githubusercontent.com/NBCmotion/CadburyMyst/refs/heads/main/Cad_09.jpg', map: "map9" },
-            { src: 'https://raw.githubusercontent.com/NBCmotion/CadburyMyst/refs/heads/main/Cad_10.jpg', map: "map10" }, 
-            { src: 'https://raw.githubusercontent.com/NBCmotion/CadburyMyst/refs/heads/main/Cad_11.jpg', map: "map11" }
-        ];
-
-        // Index of the current image
-      window.onload = function() {
-        const img = document.getElementById('slideshow-image');
-        img.src = images[0].src;
-        img.useMap = images[0].map;
-    }
-
-</script>
-
+    <h1>Welcome to a prototype point and click adventure</h1>
+    <p>Click anywhere on the page to go to another page.</p>
 </body>
 </html>
