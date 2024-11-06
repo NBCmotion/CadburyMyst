@@ -27,109 +27,95 @@
             max-width: 100%;
             max-height: 100%;
         }
+        .slideshow-image {
+            display: none;
+        }
+        .active {
+            display: block;
+        }
     </style>
 </head>
 <body>
 
     <div class="slideshow-frame">
         <!-- Image with image map applied -->
-        <img id="slideshow-image" src="https://github.com/NBCmotion/CadburyMyst/blob/main/Cad_01.jpg" alt="Slideshow Image" usemap="#image-map">
-
+        <img id="slideshow-image" src="https://github.com/NBCmotion/CadburyMyst/blob/main/Cad_01.jpg" usemap="map1" class="active slideshow-image">
           <!-- Define your image map with zones linked to other images -->
-        <map name="image-map" id="image-map">
+        <map name="map1">
             <!-- Example clickable areas for Cad_01 -->
             <area shape="poly" coords="284,285,361,327,349,645,743,654,737,323,814,295,554,30" onclick="showImage(4)" alt="Go to Image 5">
             <area shape="rect" coords="2,-1,186,770" onclick="showImage(3)" alt="Go to Image 4">
             <area shape="rect" coords="2,-1,186,770" onclick="showImage(1)" alt="Go to Image 2">
             <!-- Add more areas as needed -->
         </map>
+
+        <map name="map2">
+            <area shape="rect" coords="0,0,1024,768" onclick="showImage(0)" alt="Go to Image 1">
+        </map>
+
+        <map name="map3">
+            <area shape="rect" coords="0,0,1024,768" onclick="showImage(0)" alt="Go to Image 1">
+        </map>
+
+        <map name="map4">
+            <area shape="rect" coords="0,0,1024,768" onclick="showImage(0)" alt="Go to Image 1">
+        </map>
+
+        <map name="map5">
+            <area shape="rect" coords="0,0,1024,768" onclick="showImage(0)" alt="Go to Image 1">
+        </map>
+
+        <map name="map6">
+            <area shape="rect" coords="0,0,1024,768" onclick="showImage(0)" alt="Go to Image 1">
+        </map>
+
+        <map name="map7">
+            <area shape="rect" coords="0,0,1024,768" onclick="showImage(0)" alt="Go to Image 1">
+        </map>
+
+        <map name="map8">
+            <area shape="rect" coords="0,0,1024,768" onclick="showImage(0)" alt="Go to Image 1">
+        </map>
+
+        <map name="map9">
+            <area shape="rect" coords="0,0,1024,768" onclick="showImage(0)" alt="Go to Image 1">
+        </map>
+
+        <map name="map10">
+            <area shape="rect" coords="0,0,1024,768" onclick="showImage(0)" alt="Go to Image 1">
+        </map>
+
+        <map name="map11">
+            <area shape="rect" coords="0,0,1024,768" onclick="showImage(0)" alt="Go to Image 1">
+        </map>
+
     </div>
 
     <script>
         // List of images
         const images = [
-            'https://raw.githubusercontent.com/NBCmotion/CadburyMyst/refs/heads/main/Cad_01.jpg', 
-            'https://raw.githubusercontent.com/NBCmotion/CadburyMyst/refs/heads/main/Cad_02.jpg', 
-            'https://raw.githubusercontent.com/NBCmotion/CadburyMyst/refs/heads/main/Cad_03.jpg',
-            'https://raw.githubusercontent.com/NBCmotion/CadburyMyst/refs/heads/main/Cad_04.jpg', 
-            'https://raw.githubusercontent.com/NBCmotion/CadburyMyst/refs/heads/main/Cad_05.jpg', 
-            'https://raw.githubusercontent.com/NBCmotion/CadburyMyst/refs/heads/main/Cad_06.jpg',
-            'https://raw.githubusercontent.com/NBCmotion/CadburyMyst/refs/heads/main/Cad_07.jpg', 
-            'https://raw.githubusercontent.com/NBCmotion/CadburyMyst/refs/heads/main/Cad_08.jpg', 
-            'https://raw.githubusercontent.com/NBCmotion/CadburyMyst/refs/heads/main/Cad_09.jpg',
-            'https://raw.githubusercontent.com/NBCmotion/CadburyMyst/refs/heads/main/Cad_10.jpg', 
-            'https://raw.githubusercontent.com/NBCmotion/CadburyMyst/refs/heads/main/Cad_11.jpg'
+            { src: 'https://raw.githubusercontent.com/NBCmotion/CadburyMyst/refs/heads/main/Cad_01.jpg'}, 
+            { src: 'https://raw.githubusercontent.com/NBCmotion/CadburyMyst/refs/heads/main/Cad_02.jpg'}, 
+            { src: 'https://raw.githubusercontent.com/NBCmotion/CadburyMyst/refs/heads/main/Cad_03.jpg'},
+            { src: 'https://raw.githubusercontent.com/NBCmotion/CadburyMyst/refs/heads/main/Cad_04.jpg'}, 
+            { src: 'https://raw.githubusercontent.com/NBCmotion/CadburyMyst/refs/heads/main/Cad_05.jpg'}, 
+            { src: 'https://raw.githubusercontent.com/NBCmotion/CadburyMyst/refs/heads/main/Cad_06.jpg'},
+            { src: 'https://raw.githubusercontent.com/NBCmotion/CadburyMyst/refs/heads/main/Cad_07.jpg'}, 
+            { src: 'https://raw.githubusercontent.com/NBCmotion/CadburyMyst/refs/heads/main/Cad_08.jpg'}, 
+            { src: 'https://raw.githubusercontent.com/NBCmotion/CadburyMyst/refs/heads/main/Cad_09.jpg'},
+            { src: 'https://raw.githubusercontent.com/NBCmotion/CadburyMyst/refs/heads/main/Cad_10.jpg'}, 
+            { src: 'https://raw.githubusercontent.com/NBCmotion/CadburyMyst/refs/heads/main/Cad_11.jpg'}
         ];
 
         // Index of the current image
         let currentIndex = 0;
 
-        // Function to update the displayed image based on index
-        function showImage(index) {
-            document.getElementById('slideshow-image').src = images[index];
-            updateImageMap(index);  // Update the image map for the new image
-        }
-
-        // Function to update the image map based on the current image
-        function updateImageMap(index) {
-            const imageMap = document.getElementById('image-map');
-            imageMap.innerHTML = '';  // Clear existing map areas
-
-            // Add areas based on the current image (example for each image)
-            if (index === 0) {
-                imageMap.innerHTML = `
-                    <area shape="poly" coords="284,285,361,327,349,645,743,654,737,323,814,295,554,30" onclick="showImage(4)" alt="Go to Image 5">
-                    <area shape="rect" coords="2,-1,186,770" onclick="showImage(3)" alt="Go to Image 4">
-                    <area shape="rect" coords="2,-1,186,770" onclick="showImage(1)" alt="Go to Image 2">
-                `;
-            } else if (index === 1) {
-                imageMap.innerHTML = `
-                   <area shape="rect" coords="0,0,1024,1024" onclick="showImage(0)" alt="Go to Image 1">
-                `;
-            } else if (index === 2) {
-                imageMap.innerHTML = `
-                    <area shape="rect" coords="0,0,1024,1024" onclick="showImage(0)" alt="Go to Image 1">
-                `;
-             } else if (index === 3) {
-                imageMap.innerHTML = `
-                    <area shape="rect" coords="0,0,1024,1024" onclick="showImage(0)" alt="Go to Image 1">
-                `;
-             } else if (index === 4) {
-                imageMap.innerHTML = `
-                    <area shape="rect" coords="0,0,1024,1024" onclick="showImage(0)" alt="Go to Image 1">
-                `;
-             } else if (index === 5) {
-                imageMap.innerHTML = `
-                    <area shape="rect" coords="0,0,1024,1024" onclick="showImage(0)" alt="Go to Image 1">
-                `;
-             } else if (index === 6) {
-                imageMap.innerHTML = `
-                    <area shape="rect" coords="0,0,1024,1024" onclick="showImage(0)" alt="Go to Image 1">
-                `;
-             } else if (index === 7) {
-                imageMap.innerHTML = `
-                    <area shape="rect" coords="0,0,1024,1024" onclick="showImage(0)" alt="Go to Image 1">
-                `;
-             } else if (index === 8) {
-                imageMap.innerHTML = `
-                    <area shape="rect" coords="0,0,1024,1024" onclick="showImage(0)" alt="Go to Image 1">
-                `;
-             } else if (index === 9) {
-                imageMap.innerHTML = `
-                    <area shape="rect" coords="0,0,1024,1024" onclick="showImage(0)" alt="Go to Image 1">
-                `;
-             } else if (index === 10) {
-                imageMap.innerHTML = `
-                    <area shape="rect" coords="0,0,1024,1024" onclick="showImage(0)" alt="Go to Image 1">
-                `;
-            // Continue defining areas for other images as needed
-        }
-
-        // Load the first image and set up its map on page load
-        window.onload = function() {
-            showImage(0);
-        };
-    </script>
+      function showNextImage(index) {
+        const img = document.getElementById('slideshow-image');
+        img.src = images[index - 1].src;
+        img.useMap = "#" + images[index - 1].map;
+    }
+</script>
 
 </body>
 </html>
