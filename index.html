@@ -116,11 +116,18 @@
         img.useMap = images[0].map;
     }
 
-      function showNextImage(index) {
-        const img = document.getElementById('slideshow-image');
-        img.src = images[index - 1].src;
-        img.useMap = "#" + images[index - 1].map;
-    };
+     function updateImageMap(index) {
+            const imageMap = document.getElementById('image-map');
+            imageMap.innerHTML = '';  // Clear existing map areas
+
+            // Add areas based on the current image (example for each image)
+            if (index === 0) {
+                imageMap.innerHTML = #map1
+                ;
+            } else if (index === 1) {
+                imageMap.innerHTML = #map2
+                    ;
+            }
 </script>
 
 </body>
