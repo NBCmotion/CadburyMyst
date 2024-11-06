@@ -40,8 +40,9 @@
 
     <div class="slideshow-frame">
         <!-- Image with image map applied -->
-        <img id="slideshow-image" src="https://github.com/NBCmotion/CadburyMyst/blob/main/Cad_01.jpg" usemap="map1" class="active slideshow-image">
+        <img id="slideshow-image" src="images[index]" usemap="map[index + 1]" class="active slideshow-image">
           <!-- Define your image map with zones linked to other images -->
+       
         <map name="map1">
             <!-- Example clickable areas for Cad_01 -->
             <area shape="poly" coords="284,285,361,327,349,645,743,654,737,323,814,295,554,30" onclick="showImage(4)" alt="Go to Image 5">
