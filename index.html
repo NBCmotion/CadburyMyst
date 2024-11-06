@@ -113,7 +113,7 @@
       window.onload = function() {
         const img = document.getElementById('slideshow-image');
         img.src = images[0].src;
-        img.useMap = map[0].map;
+        img.useMap = images[0].map;
     }
 
      function updateImageMap(index) {
@@ -122,10 +122,10 @@
 
             // Add areas based on the current image (example for each image)
             if (index === 0) {
-                imageMap.innerHTML = #map1
+                imageMap.innerHTML = images[index].map
                 ;
-            } else if (index === 1) {
-                imageMap.innerHTML = #map2
+            } else  {
+                imageMap.innerHTML = images[index]
                     ;
             }
 </script>
