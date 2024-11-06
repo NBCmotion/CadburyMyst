@@ -27,6 +27,12 @@
             max-width: 100%;
             max-height: 100%;
         }
+        .slideshow-image {
+            display: none;
+        }
+        .active {
+            display: block;
+        }
         
     </style>
 </head>
@@ -103,7 +109,11 @@
         ];
 
         // Index of the current image
-        let currentIndex = 0;
+      window.onload = function() {
+        const img = document.getElementById('slideshow-image');
+        img.src = images[0].src;
+        img.useMap = "#" + images[0].map;
+    };
 
       function showNextImage(index) {
         const img = document.getElementById('slideshow-image');
