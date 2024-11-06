@@ -35,7 +35,7 @@
 
     <div class="slideshow-frame">
         <!-- Image with image map applied -->
-        <img id="slideshow-image" src="images[index]" usemap="map[index]" class="active slideshow-image">
+        <img id="slideshow-image" src="images[index]" usemap="map1" class="active slideshow-image">
           <!-- Define your image map with zones linked to other images -->
        
         <map name="map1">
@@ -110,7 +110,9 @@
         img.src = images[0].src;
         img.useMap = images[0].map;
     }
-
+function showImage(index) {
+            document.getElementById('slideshow-image').src = images[index];
+            updateImageMap(index);  // Update the image map for the new image
 
 </script>
 
