@@ -3,75 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadbury_Home</title>
+    <title>Interactive Image Map</title>
     <style>
+        /* Full page styling with black background */
         body {
+            background-color: black;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
-            background-color: black;
         }
-        .slideshow-frame {
-            width: 1024px;
-            height: 768px;
-            background-color: black;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border: 4px solid #222;
-            overflow: hidden;
+
+        /* Center the image */
+        #image-container {
+            position: relative;
         }
-        .slideshow-frame img {
-            max-width: 100%;
-            max-height: 100%;
+
+        img {
+            max-width: 90vw;
+            max-height: 90vh;
+            border: 2px solid #fff;
         }
-        
-        
     </style>
 </head>
 <body>
+    <!-- Container for the interactive image -->
+    <div id="image-container">
+        <!-- Image with an associated map -->
+        <img id="main-image" src="Cad_01.jpg" usemap="#map-01" alt="Main Image">
 
-    <div class="slideshow-frame">
-        <!-- Image with image map applied -->
-        <img id="slideshow-image" src="images[index]" usemap="map1" class="active slideshow-image">
-          <!-- Define your image map with zones linked to other images -->
-       
-        <map name="map1">
-            <!-- Example clickable areas for Cad_01 -->
-            <area shape="poly" coords="284,285,361,327,349,645,743,654,737,323,814,295,554,30" onclick="showImage(4)" alt="Go to Image 5">
-            <area shape="rect" coords="0,0,200,768" onclick="showImage(3)" alt="Go to Image 4">
-            <area shape="rect" coords="824,0,1024,768" onclick="showImage(1)" alt="Go to Image 2">
-            <!-- Add more areas as needed -->
+        <!-- Define all image maps -->
+        <map name="map-01">
+            <area shape="rect" coords="50,50,150,150" href="javascript:changeImage('Cad_02.jpg', 'map-02');" alt="Image 2">
+            <area shape="rect" coords="200,50,300,150" href="javascript:changeImage('Cad_03.jpg', 'map-03');" alt="Image 3">
         </map>
 
+        <map name="map-02">
+            <area shape="rect" coords="50,50,150,150" href="javascript:changeImage('Cad_04.jpg', 'map-04');" alt="Image 4">
+            <area shape="rect" coords="200,50,300,150" href="javascript:changeImage('Cad_01.jpg', 'map-01');" alt="Image 1">
+        </map>
+
+        <map name="map-03">
+            <area shape="rect" coords="50,50,150,150" href="javascript:changeImage('Cad_05.jpg', 'map-05');" alt="Image 5">
+            <area shape="rect" coords="200,50,300,150" href="javascript:changeImage('Cad_01.jpg', 'map-01');" alt="Image 1">
+        </map>
+
+        <!-- Add more maps as needed for each image -->
     </div>
 
     <script>
-        // List of images
-        const images = [
-            { src: 'https://raw.githubusercontent.com/NBCmotion/CadburyMyst/refs/heads/main/Cad_01.jpg', map: "map1" }, 
-            { src: 'https://raw.githubusercontent.com/NBCmotion/CadburyMyst/refs/heads/main/Cad_02.jpg', map: "map2" }, 
-            { src: 'https://raw.githubusercontent.com/NBCmotion/CadburyMyst/refs/heads/main/Cad_03.jpg', map: "map3" },
-            { src: 'https://raw.githubusercontent.com/NBCmotion/CadburyMyst/refs/heads/main/Cad_04.jpg', map: "map4" }, 
-            { src: 'https://raw.githubusercontent.com/NBCmotion/CadburyMyst/refs/heads/main/Cad_05.jpg', map: "map5" }, 
-            { src: 'https://raw.githubusercontent.com/NBCmotion/CadburyMyst/refs/heads/main/Cad_06.jpg', map: "map6" },
-            { src: 'https://raw.githubusercontent.com/NBCmotion/CadburyMyst/refs/heads/main/Cad_07.jpg', map: "map7" }, 
-            { src: 'https://raw.githubusercontent.com/NBCmotion/CadburyMyst/refs/heads/main/Cad_08.jpg', map: "map8" }, 
-            { src: 'https://raw.githubusercontent.com/NBCmotion/CadburyMyst/refs/heads/main/Cad_09.jpg', map: "map9" },
-            { src: 'https://raw.githubusercontent.com/NBCmotion/CadburyMyst/refs/heads/main/Cad_10.jpg', map: "map10" }, 
-            { src: 'https://raw.githubusercontent.com/NBCmotion/CadburyMyst/refs/heads/main/Cad_11.jpg', map: "map11" }
-        ];
-
-        // Index of the current image
-      window.onload = function() {
-        const img = document.getElementById('slideshow-image');
-        img.src = images[0].src;
-        img.useMap = images[0].map;
-    }
-
-</script>
-
+        // JavaScript function to change the displayed image and associated image map
+        function changeImage(imageSrc, mapName) {
+            const mainImage = document.getElementById('main-image');
+            mainImage.src = imageSrc;
+            mainImage.useMap = `#${mapName}`;
+        }
+    </script>
 </body>
 </html>
